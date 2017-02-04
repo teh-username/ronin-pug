@@ -1,0 +1,14 @@
+{
+    "Google": {
+        "recaptcha": {
+            "site-key": "siiiiite",
+            "secret-key": "ssshhhhh"
+        },
+        "mailer": {
+            "from": "from@domain.com",
+            "to": "to@domain.com",
+            "password": "password",
+            "subject": "subject"
+        }
+    }
+}

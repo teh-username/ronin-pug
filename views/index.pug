@@ -1,0 +1,57 @@
+extends base
+
+block head-scripts
+  script(src="https://www.google.com/recaptcha/api.js", async="", defer="")
+
+block splash-content
+  h1.splash-head Hello! I'm LA
+  p.splash-subhead
+    | I'm a Full Stack Web Developer whose
+    | work expertise ranges from designing highly scalable distributed applications, 
+    | developing efficient and well tested code base up until automating continuous integration and deployment to the production environment.
+
+block body-content
+  div.content
+    div.pure-g
+      div.l-box-lrg.pure-u-1.pure-u-md-3-5
+        h4.is-center Random Programming Tidbit
+        blockquote.is-center
+          h3.is-center #{quote.title}
+          p
+            cite
+              a(href=`${quote.url}`) #{quote.author}
+      div.l-box-lrg.pure-u-1.pure-u-md-2-5
+        h4.is-center#contact Contact Me!
+        form(action="/#contact", method="post").pure-form.pure-form-stacked
+          fieldset
+            label(for="name") Name*
+            input(
+              id="name", 
+              name="name", 
+              type="text", 
+              placeholder="Name", 
+              required="",
+              value=(form.name !== undefined && isFormValid === false ? form.name : "")
+            )
+
+            label(for="email") Email*
+            input(
+              id="email", 
+              name="email", 
+              type="email", 
+              placeholder="Where I should reply", 
+              required="",
+              value=(form.email !== undefined && isFormValid === false ? form.email : "")
+            )
+
+            label(for="message") Your Thingy*
+            textarea(id="message", name="message", required="").pure-input-1 #{(form.message !== undefined && isFormValid === false ? form.message : "")}
+
+            div(data-sitekey="6LcI8xMUAAAAAIZKUvin6czmnkONE08y0IgpsxTZ").g-recaptcha
+
+            if isFormValid === false
+              span.pure-form-message Hey, can you check your inputs real quick?
+            if isFormValid === true
+              span.pure-form-message Thanks for the message! I'll get back to you ASAP!
+
+            button(type="submit").pure-button.pure-button-primary Send
