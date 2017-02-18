@@ -6,8 +6,6 @@ html(lang="en")
     title
       | Hello There!
 
-    link(rel="stylesheet", href="https://cdn.jsdelivr.net/g/pure@0.6.2(pure-min.css+grids-responsive-min.css)")
-    link(rel="stylesheet", href="css/layout.min.css")
     script.
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -20,6 +18,8 @@ html(lang="en")
     block head-scripts
 
   body
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/g/pure@0.6.2(pure-min.css+grids-responsive-min.css)")
+    link(rel="stylesheet", href="css/layout.min.css")
     div.header
       div.home-menu.pure-menu.pure-menu-horizontal.pure-menu-fixed
         a(style="text-transform: none;").pure-menu-heading.is-left LA Roberto
