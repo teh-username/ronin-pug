@@ -21,8 +21,7 @@ request(url, function(err, res, body){
                 };
                 return {id: entry.data.id, title: entry.data.title};
             }).forEach(function(entry){
-                // set ttl to 25 hours so we don't have to mess with deletion
-                storage.setItemSync(entry.id, entry.value, {ttl: 1000*60*60*25});
+                storage.setItemSync(entry.id, entry.value);
             });
         });
     }
