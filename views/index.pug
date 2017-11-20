@@ -1,57 +1,86 @@
-extends base
-
-block head-scripts
-  script(src="https://www.google.com/recaptcha/api.js", async="", defer="")
-
-block splash-content
-  h1.splash-head Hello! I'm LA
-  p.splash-subhead
-    | I'm a Full Stack Web Developer whose
-    | work expertise ranges from designing highly scalable distributed applications, 
-    | developing efficient and well tested code base up until automating continuous integration and deployment to the production environment.
-
-block body-content
-  div.content
-    div.pure-g
-      div.l-box-lrg.pure-u-1.pure-u-md-3-5
-        h4.is-center Random Programming Tidbit
-        blockquote.is-center
-          h3.is-center #{quote.title}
-          p
-            cite
-              a(href=`${quote.url}`) #{quote.author}
-      div.l-box-lrg.pure-u-1.pure-u-md-2-5
-        h4.is-center#contact Contact Me!
-        form(action="/#contact", method="post").pure-form.pure-form-stacked
-          fieldset
-            label(for="name") Name*
-            input(
-              id="name", 
-              name="name", 
-              type="text", 
-              placeholder="Name", 
-              required="",
-              value=(form.name !== undefined && isFormValid === false ? form.name : "")
-            )
-
-            label(for="email") Email*
-            input(
-              id="email", 
-              name="email", 
-              type="email", 
-              placeholder="Email", 
-              required="",
-              value=(form.email !== undefined && isFormValid === false ? form.email : "")
-            )
-
-            label(for="message") Your Thingy*
-            textarea(id="message", name="message", required="").pure-input-1 #{(form.message !== undefined && isFormValid === false ? form.message : "")}
-
-            div(data-sitekey="6LcI8xMUAAAAAIZKUvin6czmnkONE08y0IgpsxTZ").g-recaptcha
-
-            if isFormValid === false
-              span.pure-form-message Hey, can you check your inputs real quick?
-            if isFormValid === true
-              span.pure-form-message Thanks for the message! I'll get back to you ASAP!
-
-            button(type="submit").pure-button.pure-button-primary Send
+doctype html
+html(lang="en")
+  head
+    title Hey
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width")
+    meta(name="description" content="personal website")
+    meta(name="author" content="LA")
+    style.
+      @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+      a.linkies:link, a.linkies:visited, a.linkies:hover, a.linkies:active, a.linkies:focus {
+        color: #4881C3;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #2D2D2D;
+        color: #D3D0C8;
+      }
+      pre {
+        font-family: 'Source Code Pro', monospace;
+        width: 45ch;
+        margin: 4em auto;
+        padding: .5em;
+        line-height: 0;
+        counter-reset: line;
+      }
+      pre span {
+        display: block;
+        line-height: 1.4rem;
+      }
+      pre span:before {
+        counter-increment: line;
+        content: counter(line);
+        display: inline-block;
+        border-right: 1px solid #ddd;
+        width: 3ch;
+        padding: 0 .5em;
+        margin-right: .5em;
+        color: #807F7B;
+        text-align: right;
+      }
+      pre a {
+        cursor: text;
+      }
+      #blinker {
+        animation-name: blinker;
+        animation-iteration-count: infinite;
+        animation-timing-function: cubic-bezier(1,0,0,1);
+        animation-duration: 1s;
+        background-color: #D3D0C8;
+      }
+      @keyframes blinker {
+        from { opacity: 1.0; } to { opacity: 0.0; }
+      }
+  body
+    pre#info
+      span Hey! I'm #[a(style="color:#F2777A") LA] and I write #[a(style="color:#F2777A") code].
+      span
+      span I'm a 3/4 #[a(style="color:#66CCCC") Stack Developer]
+      span (CSS will forever be magic to me).
+      span
+      span I speak #[a(style="color:#3777AC") Python], #[a(style="color:#777BB4") PHP] and #[a(style="color:#F7DF1E") Javascript] mostly
+      span but I'm always trying something new everyday.
+      span
+      span A big fan of:
+      span   0) #[a(style="color:#5AF78E") Continuous Integration]
+      span   1) #[a(style="color:#5AF78E") Automating] the boring stuff
+      span   2) Writing #[a(style="color:#5AF78E") tests] for everyone's sake
+      span   3) Pushing #[a(style="color:#5AF78E") performant] code
+      span
+      span I'm currently pushing stuff at
+      span #[a(style="color:#27B3FE") Freelancer.com].
+      span
+      span You can reach me at #[a(style="color:#F2777A") hello(at)laroberto(dot)xyz]
+      span
+      span Links that might interest you:
+      span  # #[a(href="https://github.com/teh-username").linkies Github]
+      span
+        a#blinker .
+    pre(style="display: none;")#typed
