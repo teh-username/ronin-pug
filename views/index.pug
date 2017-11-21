@@ -8,7 +8,6 @@ html(lang="en")
     meta(name="description" content="personal website")
     meta(name="author" content="LA")
     style.
-      @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
       a.linkies:link, a.linkies:visited, a.linkies:hover, a.linkies:active, a.linkies:focus {
         color: #4881C3;
         cursor: pointer;
@@ -83,3 +82,12 @@ html(lang="en")
       span #[a(style="color:#F2777A") me(at)laroberto(dot)xyz]
       span #[a(href="https://github.com/teh-username").linkies Github]
         a#blinker .
+
+    script.
+      WebFontConfig = {classes: false, google: {families: ['Source Code Pro']}};
+      (function(d) {
+        var wf = d.createElement('script'), s = d.scripts[0];
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+        wf.async = true;
+        s.parentNode.insertBefore(wf, s);
+      })(document);
