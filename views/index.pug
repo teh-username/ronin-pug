@@ -1,6 +1,12 @@
 doctype html
 html(lang="en")
   head
+    script(src="https://www.googletagmanager.com/gtag/js?id=UA-70432331-4", async)
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-70432331-4');
     title LA | Developer
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
