@@ -37,3 +37,6 @@ config/*
 
 # layout css (too lazy to automate minifier)
 public/css/layout.css
+
+# legit css
+unminifed_css
