@@ -39,4 +39,4 @@ config/*
 public/css/layout.css
 
 # legit css
-unminifed_css
+unminifed_css_js

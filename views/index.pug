@@ -15,11 +15,13 @@ html(lang="en")
       a.linkies:link,a.linkies:visited,a.linkies:hover,a.linkies:active,a.linkies:focus{color:#4881C3;cursor:pointer;text-decoration:none}*{margin:0;padding:0}body{background-color:#2D2D2D;color:#D3D0C8}pre{font-family:'Source Code Pro',monospace;width:45ch;margin:4em auto;padding:.5em;line-height:0;counter-reset:line}pre span{display:block;line-height:1.4rem}pre span:before{counter-increment:line;content:counter(line);display:inline-block;border-right:1px solid #ddd;width:3ch;padding:0 .5em;margin-right:.5em;color:#807F7B;text-align:right}pre a{cursor:text}#blinker{animation-name:blinker;animation-iteration-count:infinite;animation-timing-function:cubic-bezier(1,0,0,1);animation-duration:1s;background-color:#D3D0C8}@keyframes blinker{from{opacity:1}to{opacity:0}}
   body
     pre#info
+      span#typer(style="display: none;")
+        a#blinker .
+      span#newline(style="display: none;")
       span Hey! I'm #[a(style="color:#F2777A") LA] and I write #[a(style="color:#F2777A") code].
       span
-      span I'm (almost) a
-      span #[a(style="color:#66CCCC") Full Stack Developer]
-      span (CSS is magic to me).
+      span I'm a #[a(style="color:#66CCCC") Full Stack Developer]
+      span (but CSS is magic to me).
       span
       span I speak #[a(style="color:#3777AC") Python], #[a(style="color:#777BB4") PHP]
       span and #[a(style="color:#F7DF1E") Javascript] mostly
@@ -35,8 +37,11 @@ html(lang="en")
       span I currently do stuff at
       span #[a(style="color:#27B3FE") Freelancer.com]
       span
-      span You can reach me at:
-      span #[a(style="color:#F2777A") me(at)laroberto(dot)com]
-        a#blinker .
+      span Email: #[a(style="color:#F2777A") me(at)laroberto(dot)com]
+      span#lastline
+        a.last#blinker .
     script.
       WebFontConfig={classes:!1,google:{families:["Source Code Pro"]}},function(e){var o=e.createElement("script"),s=e.scripts[0];o.src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js",o.async=!0,s.parentNode.insertBefore(o,s)}(document);
+
+    script.
+      !function(){function e(e,a){var n=0;!function r(){n=n===a.length-1?0:n+1,t(e,a[n].text);var i=a[n].text.length-30*a[n].styles;setTimeout(r,l*i+o*i+s+1500)}()}function t(e,t){var l=0,o="",s="";!function n(){if(o=t.slice(0,++l),o===t)return void setTimeout(function i(){o=t.slice(0,--l);var n=o.slice(-1);return">"===n&&(s=!0),"<"===n&&(s=!1,o=o.slice(0,--l)),s?i():(e.innerHTML=o+a,void(""!==o&&setTimeout(i,40)))},1e3);e.innerHTML=o+a;var r=o.slice(-1);return"<"===r&&(s=!0),">"===r&&(s=!1),s?n():void setTimeout(n,90)}()}var l=90,o=40,s=1e3,a='<a id="blinker">.</a>',n=[{text:'<a style="color:#CC99CC;">use</a> Psr\\Log\\LoggerInterface; ',styles:1},{text:'from <a style="color:#B499CC;">flask</a> import <a style="color:#B499CC;">Flask</a> ',styles:2},{text:'<a style="color:#CC99CC;">const</a> <a style="color:#F2777A;">e</a> = <a style="color:#65CCCC;">require</a>(\'<a style="color:#99CC99;">express</a>\'); ',styles:4},{text:'import <a style="color:#F2777A;">React</a> from \'<a style="color:#99CC99;">react</a>\'; ',styles:2}],r=document.getElementById("typer"),i=document.getElementById("newline"),c=document.querySelector("a.last"),y=document.getElementById("lastline");r.style.display="",i.style.display="",c.style.display="none",y.style.display="none",e(r,n)}();
