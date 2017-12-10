@@ -1,0 +1,8 @@
+FROM mhart/alpine-node:8
+
+WORKDIR /src
+COPY package.json yarn.lock ./
+RUN yarn --pure-lockfile
+
+EXPOSE 3000
+CMD ["/src/node_modules/nodemon/bin/nodemon.js"]

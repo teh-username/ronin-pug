@@ -1,0 +1,12 @@
+version: '3'
+services:
+  app:
+    image: site.dev
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports: 
+      - 8080:3000
+    volumes:
+      - .:/src
+      - /src/node_modules
