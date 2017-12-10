@@ -1,5 +1,3 @@
-Codebase for [laroberto.com](https://laroberto.com)
-
 ### Up and Running
 
 There are two ways of setting up the dev environment.
