@@ -1,0 +1,9 @@
+version: '3'
+services:
+  pyselfox:
+    image: tehusername/pyselfox
+    volumes:
+      - .:/src
+      - data-scraped:/src/scraped
+volumes:
+  data-scraped:

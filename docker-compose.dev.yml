@@ -1,12 +1,20 @@
 version: '3'
 services:
-  app:
+  site:
     image: site.dev
     build:
       context: .
       dockerfile: Dockerfile.dev
-    ports: 
+    ports:
       - 8080:3000
     volumes:
       - .:/src
       - /src/node_modules
+      - data-scraped:/src/scraped
+  scraper:
+    image: tehusername/pyselfox
+    volumes:
+      - ./modules/scraper:/src
+      - data-scraped:/src/scraped
+volumes:
+  data-scraped:

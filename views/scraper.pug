@@ -1,0 +1,57 @@
+doctype html
+html(lang="en")
+  head
+    title LA Roberto | Developer
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js")
+    style(type="text/css").
+      @-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}canvas{-moz-user-select: none;-webkit-user-select: none;-ms-user-select: none;}
+  body
+    div(style='width:75%;')
+      .chartjs-size-monitor(style='position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;')
+        .chartjs-size-monitor-expand(style='position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;')
+          div(style='position:absolute;width:1000000px;height:1000000px;left:0;top:0')
+        .chartjs-size-monitor-shrink(style='position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;')
+          div(style='position:absolute;width:200%;height:200%;left:0; top:0')
+      canvas#myChart.chartjs-render-monitor(width='998', height='499', style='display: block; width: 998px; height: 499px;')
+    script.
+      var ctx = document.getElementById("myChart").getContext('2d');
+      var data = {
+        labels: JSON.parse(!{JSON.stringify(labels)}),
+        datasets: JSON.parse(!{JSON.stringify(datasets)}),
+      };
+      var options = {
+        responsive: true,
+        title:{
+            display:true,
+            text:'Scraped Prices'
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false,
+        },
+        hover: {
+            mode: 'nearest',
+            intersect: true
+        },
+        scales: {
+            xAxes: [{
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Timestamp'
+                }
+            }],
+            yAxes: [{
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'PHP'
+                }
+            }]
+        }
+      }
+      var myChart = new Chart(ctx, {
+          type: 'line',
+          data: data,
+          options: options
+      });
