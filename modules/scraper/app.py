@@ -15,7 +15,7 @@ SCHEDULES = [
 SEARCH_URL = (
     "https://beta.cebupacificair.com/Flight/Select?"
     "o1={src}&d1={dest}&o2=&d2=&dd1={from_date}&dd2={to_date}"
-    "&r=true&ADT=1&CHD=0&INF=0&inl=0&pos=cebu.sg&culture="
+    "&r=true&ADT=1&CHD=0&INF=0&inl=0&pos=cebu.ph&culture="
 )
 
 
@@ -63,15 +63,20 @@ if __name__ == '__main__':
         )
 
         print('Logging prices')
-        with open(FILE_NAME, "a") as file:
-            file.write("{}_{}_{}_{}_{}_{}_{}\n".format(
-                schedule['src'],
-                schedule['dest'],
-                schedule['from_date'],
-                schedule['to_date'],
-                datetime.datetime.now().strftime('%Y-%m-%d %H:%M'),
-                departing_price.text.replace(',', '')[:-1],
-                return_price.text.replace(',', '')[:-1]
-            ))
-
+        with open(FILE_NAME, "a+") as file:
+            data = file.readlines()
+            if len(data) >= 10:
+                data.pop()
+            data.append(
+                "{}_{}_{}_{}_{}_{}_{}\n".format(
+                    schedule['src'],
+                    schedule['dest'],
+                    schedule['from_date'],
+                    schedule['to_date'],
+                    datetime.datetime.now().strftime('%Y-%m-%d %H:%M'),
+                    departing_price.text.replace(',', '')[:-1],
+                    return_price.text.replace(',', '')[:-1]
+                )
+            )
+            file.writelines(data)
     cleanup()
