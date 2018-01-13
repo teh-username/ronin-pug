@@ -63,10 +63,10 @@ if __name__ == '__main__':
         )
 
         print('Logging prices')
-        with open(FILE_NAME, "a+") as file:
-            data = file.readlines()
+        with open(FILE_NAME, "r+") as file:
+            data = file.read().split('\n')[:-1]
             if len(data) >= 10:
-                data.pop()
+                data = data[1:]
             data.append(
                 "{}_{}_{}_{}_{}_{}_{}\n".format(
                     schedule['src'],
@@ -78,5 +78,7 @@ if __name__ == '__main__':
                     return_price.text.replace(',', '')[:-1]
                 )
             )
-            file.writelines(data)
+            file.seek(0)
+            file.truncate()
+            file.write('\n'.join(data))
     cleanup()
