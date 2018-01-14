@@ -65,7 +65,7 @@ if __name__ == '__main__':
         print('Logging prices')
         with open(FILE_NAME, "r+") as file:
             data = file.read().split('\n')[:-1]
-            if len(data) >= 10:
+            if len(data) >= 48:
                 data = data[1:]
             data.append(
                 "{}_{}_{}_{}_{}_{}_{}\n".format(
