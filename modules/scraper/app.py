@@ -8,9 +8,39 @@ SCHEDULES = [
     {
         'src': 'NRT',
         'dest': 'MNL',
+        'from_date': '2018-12-20',
+        'to_date': '2019-01-07',
+    },
+    {
+        'src': 'NRT',
+        'dest': 'MNL',
+        'from_date': '2018-12-20',
+        'to_date': '2019-01-08',
+    },
+    {
+        'src': 'NRT',
+        'dest': 'MNL',
+        'from_date': '2018-12-21',
+        'to_date': '2019-01-07',
+    },
+    {
+        'src': 'NRT',
+        'dest': 'MNL',
+        'from_date': '2018-12-21',
+        'to_date': '2019-01-08',
+    },
+    {
+        'src': 'NRT',
+        'dest': 'MNL',
         'from_date': '2018-12-22',
         'to_date': '2019-01-07',
-    }
+    },
+    {
+        'src': 'NRT',
+        'dest': 'MNL',
+        'from_date': '2018-12-22',
+        'to_date': '2019-01-08',
+    },
 ]
 SEARCH_URL = (
     "https://beta.cebupacificair.com/Flight/Select?"
