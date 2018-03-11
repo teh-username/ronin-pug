@@ -1,38 +1,39 @@
 const colors = [
-  '#3366CC',
-  '#DC3912',
-  '#FF9900',
-  '#109618',
-  '#990099',
-  '#3B3EAC',
-  '#0099C6',
-  '#DD4477',
-  '#66AA00',
-  '#B82E2E',
-  '#316395',
-  '#994499',
-  '#22AA99',
-  '#AAAA11',
-  '#6633CC',
-  '#E67300',
-  '#8B0707',
-  '#329262',
-  '#5574A6',
-  '#3B3EAC'
+  '#e6194b',
+  '#3cb44b',
+  '#ffe119',
+  '#0082c8',
+  '#f58231',
+  '#911eb4',
+  '#46f0f0',
+  '#f032e6',
+  '#d2f53c',
+  '#fabebe',
+  '#008080',
+  '#e6beff',
+  '#aa6e28',
+  '#fffac8',
+  '#800000',
+  '#aaffc3',
+  '#808000',
+  '#ffd8b1',
+  '#000080',
+  '#808080',
+  '#000000'
 ];
 
 const baseDatasetGenerator = (length, curColor = 1) => label => ({
   departing: {
     label: label + ' Departing',
-    backgroundColor: colors[length % curColor],
-    borderColor: colors[length % curColor++],
+    backgroundColor: colors[curColor % length],
+    borderColor: colors[curColor++ % length],
     data: [],
     fill: false
   },
   return: {
     label: label + ' Return',
-    backgroundColor: colors[length % curColor],
-    borderColor: colors[length % curColor++],
+    backgroundColor: colors[curColor % length],
+    borderColor: colors[curColor++ % length],
     data: [],
     fill: false
   }
