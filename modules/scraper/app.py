@@ -62,20 +62,30 @@ if __name__ == '__main__':
             )
         )
 
+        print('GET-ing currency')
+        currency = driver.find_element_by_css_selector(
+            (
+                "div.active.flights-schedule-col"
+                ".depart-col.removeUnloadConfirm"
+                " > a > p:nth-child(3)"
+            )
+        )
+
         print('Logging prices')
         with open(FILE_NAME, "r+") as file:
             data = file.read().split('\n')[:-1]
             if len(data) >= 48:
                 data = data[1:]
             data.append(
-                "{}_{}_{}_{}_{}_{}_{}\n".format(
+                "{}_{}_{}_{}_{}_{}_{}_{}\n".format(
                     schedule['src'],
                     schedule['dest'],
                     schedule['from_date'],
                     schedule['to_date'],
+                    currency.text[-3:],
                     datetime.datetime.now().strftime('%Y-%m-%d %H:%M'),
                     departing_price.text.replace(',', '')[:-1],
-                    return_price.text.replace(',', '')[:-1]
+                    return_price.text.replace(',', '')[:-1],
                 )
             )
             file.seek(0)
