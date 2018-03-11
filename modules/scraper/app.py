@@ -6,10 +6,10 @@ from pyvirtualdisplay import Display
 FILE_NAME = 'scraped/scraper.log'
 SCHEDULES = [
     {
-        'src': 'MNL',
-        'dest': 'NRT',
-        'from_date': '2018-04-27',
-        'to_date': '2018-05-06',
+        'src': 'NRT',
+        'dest': 'MNL',
+        'from_date': '2018-12-22',
+        'to_date': '2019-01-07',
     }
 ]
 SEARCH_URL = (
